@@ -114,7 +114,12 @@ document.onkeyup = function(event) {
         alert("victory");
         wins++;
         winsDestination.textContent = wins;
-        initialize();
+        var restart = confirm("Would you like to play again?");
+        if (restart === true) {
+            initialize();
+        }
+        
+
     }
     
 }
