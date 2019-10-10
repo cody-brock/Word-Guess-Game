@@ -118,9 +118,17 @@ document.onkeyup = function(event) {
         if (restart === true) {
             initialize();
         }
+    }
+    if (remainingIncorrectGuesses <= 0) {
+        alert("You lose!");
+        var restart = confirm("Would you like to play again?");
+        if (restart === true) {
+            initialize();
+        }
+    }
         
 
-    }
+    
     
 }
 
