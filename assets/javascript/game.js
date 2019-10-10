@@ -1,36 +1,42 @@
 //Global Variables
 //============================================================================================
-var wordBank = ['hahaha', 'slipslisp', 'lolligag', 'lolllloooll']
 var remainingIncorrectGuesses = 10;
 var correctGuesses = [];
 var incorrectGuesses = [];
 var wins = 0;
-
-//Starting the Game
-//============================================================================================
-//selects random word
-var hangmanWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-console.log('hangmanWord', hangmanWord);
-
-//breaks word into array of individual letters
-lettersInWord = hangmanWord.split("");
-console.log("split!", lettersInWord, lettersInWord.length);
+var wordBank = ['hahaha', 'slipslisp', 'lolligag', 'lolllloooll']
 
 //links to document
 var secretHolderText = document.getElementById("secret-holder-text");
 var wrongGuesses = document.getElementById("incorrect-guesses");
 var guessesLeft = document.getElementById("remaining-guesses");
-var winsDestination = document.getElementById('wins')
+var winsDestination = document.getElementById('wins');
 
+//sets and resets variables for first or new game
+function initialize() {
 
-//creates an array of hashes matching length of word
-var hashes = [];
-for (let i = 0; i < lettersInWord.length; i++) {
-    hashes.push('-');
-}
-//turns this into a string that can appear on page
-hashesWord = hashes.join('');
+    remainingIncorrectGuesses = 10;
+    correctGuesses = [];
+    incorrectGuesses = [];
 
+    //selects random word
+    var hangmanWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+    console.log('hangmanWord', hangmanWord);
+
+    //breaks word into array of individual letters
+    lettersInWord = hangmanWord.split("");
+    console.log("split!", lettersInWord, lettersInWord.length);
+
+    //creates an array of hashes matching length of word
+    var hashes = [];
+    for (let i = 0; i < lettersInWord.length; i++) {
+        hashes.push('-');
+    }
+    //turns this into a string that can appear on page
+    hashesWord = hashes.join('');
+};
+
+initialize();
 
 //Main code
 //============================================================================================
@@ -108,6 +114,7 @@ document.onkeyup = function(event) {
         alert("victory");
         wins++;
         winsDestination.textContent = wins;
+        initialize();
     }
     
 }
