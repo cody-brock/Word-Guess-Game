@@ -12,9 +12,9 @@ var wrongGuesses = document.getElementById("incorrect-guesses");
 var guessesLeft = document.getElementById("remaining-guesses");
 var winsDestination = document.getElementById('wins');
 
+
 //sets and resets variables for first or new game
 function initialize() {
-
     remainingIncorrectGuesses = 10;
     correctGuesses = [];
     incorrectGuesses = [];
