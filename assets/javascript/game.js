@@ -4,10 +4,11 @@ var wordBank = ['hahaha', 'slipslisp', 'lolligag', 'lolllloooll']
 var remainingIncorrectGuesses = 10;
 var correctGuesses = [];
 var incorrectGuesses = [];
+var wins = 0;
 
 //Starting the Game
 //============================================================================================
-//selects random word - WORKS
+//selects random word
 var hangmanWord = wordBank[Math.floor(Math.random() * wordBank.length)];
 console.log('hangmanWord', hangmanWord);
 
@@ -15,14 +16,19 @@ console.log('hangmanWord', hangmanWord);
 lettersInWord = hangmanWord.split("");
 console.log("split!", lettersInWord, lettersInWord.length);
 
-//creates the hashes
-var secretHolderText = document.getElementById("secret-holder-text")
+//links to document
+var secretHolderText = document.getElementById("secret-holder-text");
+var wrongGuesses = document.getElementById("incorrect-guesses");
+var guessesLeft = document.getElementById("remaining-guesses");
+var winsDestination = document.getElementById('wins')
 
- var hashes = [];
+
+//creates an array of hashes matching length of word
+var hashes = [];
 for (let i = 0; i < lettersInWord.length; i++) {
     hashes.push('-');
 }
-
+//turns this into a string that can appear on page
 hashesWord = hashes.join('');
 
 
@@ -64,8 +70,10 @@ document.onkeyup = function(event) {
             for (let i=0; i<lettersInWord.length; i++) {
                 //if letter matches user guess...
                 if (lettersInWord[i] === userGuess) {
-                    console.log(userGuess, i);
-
+                    //insert the guessed letter into the hashes
+                    hashesWord = hashesWord.split('');
+                    hashesWord[i] = userGuess;
+                    hashesWord = hashesWord.join('');
                 }
             };
             
@@ -87,7 +95,20 @@ document.onkeyup = function(event) {
         console.log("incorrectGuesses",incorrectGuesses);
     }
 
-    secretHolderText.textContent = "look here" + hashesWord;
+    //updates these text fields
+    secretHolderText.textContent = hashesWord;
+    wrongGuesses.textContent = incorrectGuesses;
+    guessesLeft.textContent = remainingIncorrectGuesses;
+    winsDestination.textContent = wins;
+
+
+    //Victory condition!  If there are no more hashes
+    if (hashesWord.indexOf('-') === -1) {
+        //all done!
+        alert("victory");
+        wins++;
+        winsDestination.textContent = wins;
+    }
     
 }
 
