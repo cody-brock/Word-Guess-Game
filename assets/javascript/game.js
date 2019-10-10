@@ -1,6 +1,6 @@
 //Global Variables
 //============================================================================================
-var remainingIncorrectGuesses = 10;
+var remainingIncorrectGuesses = 7;
 var correctGuesses = [];
 var incorrectGuesses = [];
 var wins = 0;
@@ -15,7 +15,7 @@ var winsDestination = document.getElementById('wins');
 
 //sets and resets variables for first or new game
 function initialize() {
-    remainingIncorrectGuesses = 10;
+    remainingIncorrectGuesses = 7;
     correctGuesses = [];
     incorrectGuesses = [];
 
@@ -52,7 +52,7 @@ document.onkeyup = function(event) {
     //if userGuess is a letter a - z...
     if (event.keyCode >=65 && event.keyCode <=90) {
         //set userGuess and move on with function
-        userGuess = event.key;
+        userGuess = event.key.toLowerCase();
         console.log('userGuess', userGuess);
     }
     //if user guess is not a letter...
@@ -120,7 +120,7 @@ document.onkeyup = function(event) {
         }
     }
     if (remainingIncorrectGuesses <= 0) {
-        alert("You lose!");
+        alert("You lose!")
         var restart = confirm("Would you like to play again?");
         if (restart === true) {
             initialize();
