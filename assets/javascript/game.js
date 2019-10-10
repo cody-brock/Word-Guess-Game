@@ -19,6 +19,10 @@ function initialize() {
     correctGuesses = [];
     incorrectGuesses = [];
 
+    
+
+
+
     //selects random word
     var hangmanWord = wordBank[Math.floor(Math.random() * wordBank.length)];
     console.log('hangmanWord', hangmanWord);
@@ -34,6 +38,16 @@ function initialize() {
     }
     //turns this into a string that can appear on page
     hashesWord = hashes.join('');
+
+
+    secretHolderText.textContent = hashesWord;
+    wrongGuesses.textContent = incorrectGuesses;
+    guessesLeft.textContent = remainingIncorrectGuesses;
+    winsDestination.textContent = wins;
+
+
+
+
 };
 
 initialize();
