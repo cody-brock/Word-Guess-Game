@@ -52,6 +52,9 @@ function initialize() {
 
 initialize();
 
+
+
+
 //Main code
 //============================================================================================
 
@@ -151,3 +154,4 @@ document.onkeyup = function(event) {
 //============================================================================================
 //QUESTION: does this need to be in the function?
 //should print the hashmarks to page, but is NOT WORKING
+

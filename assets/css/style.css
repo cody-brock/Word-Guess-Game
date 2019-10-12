@@ -1,3 +1,13 @@
+body{
+    background-image: url(https://www.handletheheat.com/wp-content/uploads/2015/03/Best-Birthday-Cake-with-milk-chocolate-buttercream-SQUARE-768x768.jpg);
+    background-size: cover;
+}
+
+.jumbotron {
+    background-color: coral;
+    size: 
+}
+
 .container-main {
     background-color: aquamarine;
     text-align: center;
@@ -6,6 +16,7 @@
 .display-4 {
     text-align: center;
 }
+
 
 
 
