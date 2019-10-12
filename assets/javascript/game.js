@@ -11,6 +11,8 @@ var secretHolderText = document.getElementById("secret-holder-text");
 var wrongGuesses = document.getElementById("incorrect-guesses");
 var guessesLeft = document.getElementById("remaining-guesses");
 var winsDestination = document.getElementById('wins');
+var pleaseSelectLetter = document.getElementById("please-select-letter");
+// var displaySetting = pleaseSelectLetter.style.display;
 
 
 //sets and resets variables for first or new game
@@ -18,6 +20,7 @@ function initialize() {
     remainingIncorrectGuesses = 7;
     correctGuesses = [];
     incorrectGuesses = [];
+    
 
     
 
@@ -66,6 +69,7 @@ var userGuess;
 
 //detects what key is pushed
 document.onkeyup = function(event) {
+    pleaseSelectLetter.style.display = 'none'
     //if userGuess is a letter a - z...
     if (event.keyCode >=65 && event.keyCode <=90) {
         //set userGuess and move on with function
@@ -73,9 +77,10 @@ document.onkeyup = function(event) {
         console.log('userGuess', userGuess);
     }
     //if user guess is not a letter...
-    else {
+    else if (event.keyCode <65 || event.keyCode >90) {
         //tell user to use letters, end function
         console.log("please select a letter between a - z");
+        pleaseSelectLetter.style.display = 'block';
         return;
     }
     
