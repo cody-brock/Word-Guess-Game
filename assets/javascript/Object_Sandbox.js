@@ -4,7 +4,7 @@ var remainingIncorrectGuesses = 7;
 var correctGuesses = [];
 var incorrectGuesses = [];
 var wins = 0;
-var wordBank = ['hahaha', 'slipslisp', 'lolligag', 'lolllloooll']
+var wordBank = ['birthday', 'cake', 'chocolate', 'surprise', 'present', 'party', 'funfetti']
 
 //links to document
 var secretHolderText = document.getElementById("secret-holder-text");

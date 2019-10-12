@@ -5,12 +5,15 @@ body{
 
 .jumbotron {
     background-color: coral;
-    size: 
+    height: 180px;
+    margin-bottom: 120px;
 }
 
 .container-main {
     background-color: aquamarine;
     text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .display-4 {
