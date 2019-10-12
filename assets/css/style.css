@@ -3,17 +3,19 @@ body{
     background-size: cover;
 }
 
-.jumbotron {
+.get-started {
     background-color: coral;
-    height: 180px;
+    height: 100px;
+    padding-top: 20px;
+    padding-bottom: 100px;
     margin-bottom: 120px;
 }
 
 .container-main {
     background-color: aquamarine;
     text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .display-4 {

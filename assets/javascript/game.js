@@ -7,12 +7,12 @@ var wins = 0;
 var wordBank = ['birthday', 'cake', 'chocolate', 'surprise', 'present', 'party', 'funfetti']
 
 //links to document
-var secretHolderText = document.getElementById("secret-holder-text");
-var wrongGuesses = document.getElementById("incorrect-guesses");
-var guessesLeft = document.getElementById("remaining-guesses");
+var secretHolderText = document.getElementById('secret-holder-text');
+var wrongGuesses = document.getElementById('incorrect-guesses');
+var guessesLeft = document.getElementById('remaining-guesses');
 var winsDestination = document.getElementById('wins');
-var pleaseSelectLetter = document.getElementById("please-select-letter");
-// var displaySetting = pleaseSelectLetter.style.display;
+var pleaseSelectLetter = document.getElementById('please-select-letter');
+var jumbo = document.getElementById('jumbo-tron')
 
 
 //sets and resets variables for first or new game
@@ -20,6 +20,7 @@ function initialize() {
     remainingIncorrectGuesses = 7;
     correctGuesses = [];
     incorrectGuesses = [];
+    jumbo.style.display = "block";
     
 
     
@@ -69,7 +70,9 @@ var userGuess;
 
 //detects what key is pushed
 document.onkeyup = function(event) {
+    //hides the message to select a letter a-z
     pleaseSelectLetter.style.display = 'none'
+    jumbo.style.display = 'none'
     //if userGuess is a letter a - z...
     if (event.keyCode >=65 && event.keyCode <=90) {
         //set userGuess and move on with function
@@ -133,25 +136,29 @@ document.onkeyup = function(event) {
     //Victory condition!  If there are no more hashes
     if (hashesWord.indexOf('-') === -1) {
         //all done!
-        alert("victory");
+        alert("You Win!");
         wins++;
         winsDestination.textContent = wins;
-        var restart = confirm("Would you like to play again?");
-        if (restart === true) {
-            initialize();
-        }
+        initialize();
+    } else if (remainingIncorrectGuesses <= 0) {
+        alert("You Lose!")
+        initialize();
     }
-    if (remainingIncorrectGuesses <= 0) {
-        alert("You lose!")
-        var restart = confirm("Would you like to play again?");
-        if (restart === true) {
-            initialize();
-        }
-    }
+
+    //     var restart = confirm("Would you like to play again?");
+    //     if (restart === true) {
+    //         initialize();
+    //     }
+    // }
+    // if (remainingIncorrectGuesses <= 0) {
+    //     alert("You lose!")
+    //     var restart = confirm("Would you like to play again?");
+    //     if (restart === true) {
+    //         initialize();
+    //     }
+    // }
         
 
-    
-    
 }
 
 
